@@ -1,6 +1,9 @@
 fn func_ex_div_some(x: i32, y: i32) -> Option<i32> {
-    let ans = if y == 0 { None } else { Some(x / y) };
-    ans
+    if y == 0 {
+        None
+    } else {
+        Some(x / y)
+    }
 }
 
 fn func_ex_div_result(x: i32, y: i32) -> Result<i32, &'static str> {
@@ -33,7 +36,7 @@ fn func_ex_print_result<T: std::fmt::Display, E: std::fmt::Display>(ans: Result<
     }
 }
 
-fn main() {
+pub fn main() {
     func_ex_print_some(func_ex_div_some(10, 5));
     func_ex_print_some(func_ex_div_some(10, 0));
     func_ex_print_some_match(func_ex_div_some(10, 5));
