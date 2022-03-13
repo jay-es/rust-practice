@@ -1,7 +1,7 @@
 mod c2;
+mod c4_6;
 mod c4_7;
 
 fn main() {
-    c2::main();
-    c4_7::main();
+    // ↓ 動作確認したい関数をここに
 }
