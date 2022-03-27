@@ -79,6 +79,25 @@ pub fn fn3() -> io::Result<()> {
     Ok(())
 }
 
+// モジュール化（本当は別ファイルに作成）
+pub fn get_lines<T: Read>(f: T) -> Vec<String> {
+    let f = BufReader::new(f);
+    let mut lines_vec = Vec::new();
+
+    for ll in f.lines() {
+        lines_vec.push(ll.unwrap());
+    }
+
+    lines_vec
+}
+
+pub fn fn35() -> io::Result<()> {
+    let f = File::open("../README.md")?;
+    let lines_vec = get_lines(f);
+
+    println!("{:?}", lines_vec);
+    Ok(())
+}
 // ファイルの書き込み
 
 // use std::fs::File;
