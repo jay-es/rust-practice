@@ -12,6 +12,7 @@ mod c6_1;
 mod c6_2;
 mod c7_2;
 mod c7_4;
+mod c7_5;
 
 fn main() {
     // ↓ 動作確認したい関数をここに
