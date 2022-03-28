@@ -33,6 +33,7 @@ pub fn fn2_1() {
 // ケース2 イミュータブルなリファレンス
 pub fn fn2_2() {
     let vv = vec![1, 2, 3, 4];
+    #[allow(clippy::into_iter_on_ref)]
     let mut iter = (&vv).into_iter();
 
     let x = iter.next().unwrap();
@@ -49,6 +50,7 @@ pub fn fn2_2() {
 // ケース ミュータブルなリファレンス
 pub fn fn2_3() {
     let mut vv = vec![1, 2, 3, 4];
+    #[allow(clippy::into_iter_on_ref)]
     let mut iter = (&mut vv).into_iter();
 
     let x = iter.next().unwrap();

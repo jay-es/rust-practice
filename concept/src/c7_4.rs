@@ -20,11 +20,13 @@ pub fn fn1() {
 }
 
 pub fn fn2() {
+    #![allow(unused_mut, unused_variables)]
+
     let mut m = 1;
     let add_m = |x: i32| x + m;
     println!("{}", add_m(1)); // 2
 
-    // クロージャが所有権を借用しているのでエラー
+    // クロージャが m の所有権を借用しているのでエラー
     // m = 10;
     // println!("{}", add_m(1));
 
@@ -33,7 +35,7 @@ pub fn fn2() {
     let add_m = |x: i32| x + m;
     println!("{}", add_m(1)); // 11
 
-    // m を再宣言しても add_m には影響しない
+    // m だけを再宣言しても add_m には影響しない
     let m = 100;
     println!("{}", add_m(1)); // 11
 }
@@ -45,6 +47,7 @@ pub fn fn3() {
     println!("{:?}", filtered);
 
     let w = vec![4, 5, 6];
+    #[allow(clippy::unnecessary_fold)]
     let sum = w.into_iter().fold(0, |x, y| x + y);
     println!("{}", sum);
 
